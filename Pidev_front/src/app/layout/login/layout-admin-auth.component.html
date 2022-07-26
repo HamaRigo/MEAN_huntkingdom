@@ -1,0 +1,55 @@
+<div class="box-form">
+
+  <div class="left">
+    <div class="overlay">
+      <h1>Hello World.</h1>
+      <p>Consult Our Store . Events . Formation . Activities . Welcome To Your Profile</p>
+
+    </div>
+  </div>
+  <div class="right">
+    <h5>Login</h5>
+    <br><br>
+    <br><br>
+    <div class="inputs">
+      <p>Don't have an account? <a routerLink="/register">Creat Your Account</a> it takes less than a minute</p>
+          <div class="inputs">
+                <form class="user" #f="ngForm" (ngSubmit)="loginadmin(f)">
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-user"
+                           id="exampleInputEmail" aria-describedby="emailHelp"
+                           placeholder="Enter Email Address..." name="email" #email="ngModel" ngModel>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-user"
+                           id="exampleInputPassword" placeholder="Password" name="password" #password="ngModel" ngModel>
+                  </div>
+                  <div class="alert alert-danger" *ngIf="messageAuthError">
+                    {{messageAuthError}}
+                  </div>
+
+
+
+                  <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                </form>
+
+          </div>
+
+      <br><br>
+
+      <div class="remember-me--forget-password">
+        <!-- Angular -->
+        <!--      <label>-->
+        <!--        <input type="checkbox" name="item" checked/>-->
+        <!--        <span class="text-checkbox">Remember me</span>-->
+        <!--      </label>-->
+        <p>forget password?</p>
+      </div>
+
+      <br>
+<!--      <button type="submit" >Login</button>-->
+<!--      &lt;!&ndash;    </form>&ndash;&gt;-->
+    </div>
+  </div>
+
+
