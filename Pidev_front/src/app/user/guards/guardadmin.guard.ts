@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthadminService } from '../services/authadmin.service';
+import { adminService } from 'src/app/user/Services/admin.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuardadminGuard implements CanActivate {
-  constructor(private as:AuthadminService,private router:Router){
+  constructor(private as:adminService,private router:Router){
 
   }
   canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+
     // if(this.as.LoggedIn()==true){
     //   return true
     // }
@@ -31,7 +31,7 @@ export class GuardadminGuard implements CanActivate {
 
     }
     })
-   
+
   }
-  
+
 }

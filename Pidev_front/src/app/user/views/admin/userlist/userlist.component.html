@@ -44,8 +44,8 @@
             <tbody>
 
             <tr class="jsgrid-row" *ngFor="let item of dataArray;index as i">
-              <td class="jsgrid-cell" style="width: 70px;">{{item.firstname}}</td>
-              <td class="jsgrid-cell" style="width: 70px;">{{item.lastname}}</td>
+              <td class="jsgrid-cell" style="width: 70px;">{{item.first_name}}</td>
+              <td class="jsgrid-cell" style="width: 70px;">{{item.last_name}}</td>
               <td class="jsgrid-cell" style="width: 150px;">{{item.email}}</td>
               <td class="jsgrid-cell" style="width: 50px;">{{item.status}}</td>
 
@@ -53,9 +53,9 @@
 <!--                <select>-->
 <!--                  <option value="0">More...</option>-->
 <!--                  <option value="1">-->
-                    <button class="btn btn-success"
-                           (click)="getdata(item.firstname,item.lastname,item.status,item.createdAt,item.updatedAt,item.email,item._id)"
-                              data-toggle="modal" data-target="#exampleModal">Update</button>
+<!--                    <button class="btn btn-success"-->
+<!--                           (click)="getdata(item.firstname,item.lastname,item.status,item.createdAt,item.updatedAt,item.email,item._id)"-->
+<!--                              data-toggle="modal" data-target="#exampleModal">Update</button>-->
 <!--                  </option>-->
 <!--                  <option value="2">-->
                     <button class="btn btn-info" (click)="details(item.id)">Details</button>

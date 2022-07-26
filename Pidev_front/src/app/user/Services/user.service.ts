@@ -7,8 +7,9 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 })
 export class UserService {
   helper=new JwtHelperService()
+  constructor(private http:HttpClient) { }
 
-  constructor(private http :HttpClient) { }
+
 
   register(body:any){
     return this.http.post('http://localhost:3000/register',body)

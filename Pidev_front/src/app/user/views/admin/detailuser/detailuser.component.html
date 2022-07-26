@@ -1,19 +1,88 @@
-<p>detailuser works!</p>
-<div class="container">
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-  <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>User details</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <ul *ngIf="datauser">
-      <li>{{datauser.firstname}}</li>
-      <li>{{datauser.lastname}}</li>
+<!--<p>detailuser works!</p>-->
+<!--<div class="container">-->
+<!--  <div class="w3-main" style="margin-left:340px;margin-right:40px">-->
+<!--    <div class="w3-container" id="contact" style="margin-top:75px">-->
+<!--      <h1 class="w3-xxxlarge w3-text-red"><b>User details</b></h1>-->
+<!--      <hr style="width:50px;border:5px solid red" class="w3-round">-->
+<!--      <ul *ngIf="datauser">-->
+<!--        <li>{{datauser.firstname}}</li>-->
+<!--        <li>{{datauser.lastname}}</li>-->
 
-      <li>{{datauser.email}}</li>
-    </ul>
+<!--        <li>{{datauser.email}}</li>-->
+<!--      </ul>-->
 
-    <div class="alert alert-danger" *ngIf="!datauser" >We don't have this user in our database</div>
+<!--      <div class="alert alert-danger" *ngIf="!datauser">We don't have this user in our database</div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->
+<!--********-->
+<section class="content">
+  <div class="card">
+    <div class="card-header">
+<!--      <a routerLink="/admin/adduser" style="float: right;" class="btn btn-primary">Add User</a>-->
+      <img src="./assets/user_img/{{datauser.profile_image}}" alt="{{datauser.username}}" class="avatar"> {{datauser.username}}
+<!--      <h3 class="card-title">This Is  {{datauser.username}}</h3>-->
+    </div>
+    <div class="card-body">
+      <div id="jsGrid1" class="jsgrid" style="position: relative; height: 100%; width: 100%;">
+        <div class="jsgrid-grid-header">
+          <table class="jsgrid-table">
+            <tr class="jsgrid-header-row">
+              <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 40px;">Username</th>
+              <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 30px;">FirstName</th>
+              <th class="jsgrid-header-cell jsgrid-align-right jsgrid-header-sortable" style="width: 30px;">lastname</th>
+              <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 75px;">email</th>
+              <th class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable" style="width: 30px;">phone</th>
+              <th class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable" style="width: 50px;">createdAt</th>
+              <th class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable" style="width: 50px;">updatedAt</th>
+              <th class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable" style="width: 25px;">status</th>
+ <!-- <th class="jsgrid-header-cell jsgrid-align-right jsgrid-header-sortable" style="width: 100px;">Actions</th>-->
+            </tr>
+          </table>
+        </div>
+        <div class="jsgrid-grid-body" style="height: 100px;">
+          <table class="jsgrid-table">
+            <tbody>
+            <tr class="jsgrid-row" *ngIf="datauser">
+              <td class="jsgrid-cell" style="width: 40px;">{{datauser.username}}</td>
+              <td class="jsgrid-cell" style="width: 30px;">{{datauser.first_name}}</td>
+              <td class="jsgrid-cell" style="width: 30px;">{{datauser.last_name}}</td>
+              <td class="jsgrid-cell" style="width: 75px;">{{datauser.email}}</td>
+              <td class="jsgrid-cell" style="width: 30px;">{{datauser.phone}}</td>
+              <td class="jsgrid-cell" style="width: 50px;">{{datauser.createdAt}}</td>
+              <td class="jsgrid-cell" style="width: 50px;">{{datauser.updatedAt}}</td>
+              <td class="jsgrid-cell jsgrid-align-center" style="width: 25px;" >
+                <input type="checkbox"  id="a_principal" name="a_principal" value="{{datauser.status}}
+"/>
+
+<!--                {{datauser.status}}-->
+              </td>
+<!--              $( elem ).prop( "checked" )-->
+
+              <div class="alert alert-danger" *ngIf="!datauser">We don't have this user in our database</div>
+            </tr>
+
+            </tbody>
+
+          </table>
+<!--          <br>-->
+          <button class="btn btn-success" style="float: right;"
+                 (click)="delete(datauser.id)
+             "data-toggle="modal" data-target="#exampleModal">Update</button>
+          <button class="btn btn-danger" style="float: right;"  (click)="delete(datauser.id)">Delete</button>
+
+        </div>
+        <div class="jsgrid-load-shader" style="display: none; position: absolute; inset: 0px; z-index: 1000;"></div>
+        <div class="jsgrid-load-panel" style="display: none; position: absolute; top: 50%; left: 50%; z-index: 1000;">
+          Please, wait...
+        </div>
+      </div>
+    </div>
 
   </div>
-</div>
 
-</div>
+</section>
+
+

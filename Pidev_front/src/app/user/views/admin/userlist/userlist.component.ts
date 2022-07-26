@@ -13,8 +13,8 @@ export class UserlistComponent implements OnInit {
   dataArray: any = []
 
   datauser = {
-    firstname: '',
-    lastname: '',
+    first_name: '',
+    last_name: '',
     email: '',
     status: '',
     createdAt: '',
@@ -50,8 +50,8 @@ export class UserlistComponent implements OnInit {
 
   getdata(firstname: string, lastname: string, createdAt: string, updatedAt: string, status: string, email: string, id: any) {
     this.messageSuccess = ''
-    this.datauser.firstname = firstname
-    this.datauser.lastname = lastname
+    this.datauser.first_name = firstname
+    this.datauser.last_name = lastname
     this.datauser.status = status
     this.datauser.createdAt = createdAt
     this.datauser.updatedAt = updatedAt

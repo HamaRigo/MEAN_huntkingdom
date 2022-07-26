@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {DataService} from "../../../Services/Data.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-detailuser',
@@ -10,6 +11,9 @@ import {DataService} from "../../../Services/Data.service";
 export class DetailuserComponent implements OnInit {
   id:any
   datauser:any
+  dataArray: any = []
+  messageSuccess = ''
+
   constructor(private aroute:ActivatedRoute,private ds:DataService) {
     this.aroute.params.subscribe(data=>this.id= data['id'])
   }
@@ -17,10 +21,20 @@ export class DetailuserComponent implements OnInit {
 
   ngOnInit(): void {
     this.ds.getOneuser(this.id).subscribe(data=>{
-      console.log(data.id)
+      console.log(data)
       this.datauser=data
     })
 
   }
+  delete(id: any) {
+
+    this.ds.deleteuser(id).subscribe(response => {
+      console.log(response)
+      this.dataArray.id
+
+    })
+
+  }
+
 
 }

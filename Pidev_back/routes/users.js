@@ -9,41 +9,15 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const {authPage} = require("../helpers/middleware");
 
-// router.post('/authenticate', authenticate);
-// router.post('/login', async (req, res) => {
-//   const user = await User.findOne({username: req.body.username})
-//
-//   if (!user) {
-//     return res.status(404).send({
-//       message: 'user not found'
-//     })
-//   }
-//
-//   if (!await bcrypt.compare(req.body.password, user.hash)) {
-//     return res.status(400).send({
-//       message: 'invalid credentials'
-//     })
-//   }
-//
-//   const token = jwt.sign({_id: user._id}, "rigo")
-//   const refreshtoken = jwt.sign({_id: user._id}, "refreshrigo")
-//
-//   res.cookie('jwt', refreshtoken, {
-//     httpOnly: true,
-//     maxAge: 24 * 60 * 60 * 1000 // 1 day
-//   })
-//
-//   res.send({...user.toJSON(),
-//     message: 'success'
-//   })
-// })
-// router.post('/register', register);
-// authPage(["62bf9a8b80ef98715c71ae1f"]),
+
+
 router.get('',  getAll);
 router.get('/current', getCurrent);
-router.get(getById);
+router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', _delete);
+// authPage(["62bf9a8b80ef98715c71ae1f"]),
+
 router.post('/recherche_or',function(req, res, next) {
   var username= req.body.username;
   var email= req.body.email
@@ -70,32 +44,10 @@ router.post('/recherche_and',function(req, res, next) {
 });
 module.exports = router;
 
-// async function authenticate(req, res, next) {
-//   userService.authenticate(req.body, res)
-//       .then(user => user ? res.json(user) : res.status(400).json({message: 'Username or password is incorrect'}))
-//       .catch(err => next(err));
-//   const user = await User.findOne({username: req.body.username})
-//
-//   const token = jwt.sign({_id: user._id}, "rigo")
-//
-//   res.cookie('jwt', token, {
-//     httpOnly: true,
-//     maxAge: 24 * 60 * 60 * 1000 // 1 day
-//   })
-//
-//
-// }
 
-// function register(req, res, next) {
-//   userService.create(req.body)
-//       .then(() => res.json({message:"success registration !!"}))
-//       .catch(err => next(err));
-// }
 
 function getAll(req, res, next) {
-
     userService.getAll(req)
-
       .then(users => res.json(users))
       .catch(err => next(err));
 
@@ -124,3 +76,4 @@ function _delete(req, res, next) {
       .then(() => res.json({message:"user deleted !!"}))
       .catch(err => next(err));
 }
+

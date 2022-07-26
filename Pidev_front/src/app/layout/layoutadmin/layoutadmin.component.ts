@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthadminService } from 'src/app/user/Services/admin.service';
+import { adminService } from 'src/app/user/Services/admin.service';
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class LayoutadminComponent implements OnInit {
   username:any
 
-  constructor(private asd:AuthadminService,private route:Router) {
+  constructor(private asd:adminService,private route:Router) {
     // this.username=this.asd.getUsername()
   //
   }
@@ -20,6 +20,6 @@ export class LayoutadminComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem('token')
-    this.route.navigate(['/admin'])
+    this.route.navigate(['/admin/login'])
   }
 }

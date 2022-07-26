@@ -1,1 +1,117 @@
-<p>register works!</p>
+<!--<p>register works!</p>-->
+<div class="box-form">
+
+  <div class="left">
+    <div class="overlay">
+      <h1>Welcome with Us</h1>
+      <p>Completer votre registration en Quelque Etape</p>
+      <!--      <span>-->
+      <!--			<p>login with social media</p>-->
+      <!--			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+      <!--			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>-->
+      <!--		</span>-->
+    </div>
+  </div>
+
+
+  <div class="right">
+<!--    <form class="user">-->
+
+    <h5>Register</h5>
+      <!--      <div class="inputs">-->
+      <br>
+      <br>
+      <br>
+              <p>Write your information Here and Creat Your Account it takes less than a minute</p>
+<!--        <form class="user">-->
+    <form NgForm name="f" ngForm #f  >
+
+    <div class="inputs">
+      <input type="email" class="form-control" id="email" name="email" ngModel required placeholder="Email">
+      <input type="text" class="form-control" id="first_name" name="first_name" ngModel required placeholder="First name">
+      <input type="text" class="form-control" id="last_name" name="last_name" ngModel required placeholder="Last name">
+      <input type="text" class="form-control" id="username" name="username" ngModel required placeholder="Username">
+      <input type="text" class="form-control" id="phone" name="phone" ngModel required placeholder="Phone">
+      <input type="password" class="form-control" id="password" name="password" ngModel required placeholder="Password">
+      </div>
+      <br><br>
+      <div class="remember-me--forget-password">
+        <!-- Angular -->
+        <p><a routerLink="/login">Alrady have registred !</a></p>
+      </div>
+      <br>
+      <button type="submit" (click)="add(f)">Register</button>
+  </form>
+  </div>
+</div>
+
+<!-- partial -->
+<!--<form NgForm #f="ngForm" name="f" (ngSubmit)="add(f)">-->
+<!--  &lt;!&ndash;    <form  NgForm #f="NgForm" name="f" (onclick)>&ndash;&gt;-->
+
+<!--  &lt;!&ndash;    <form class="form-horizontal" ng-Submit="add(f)">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <form class="form-horizontal">&ndash;&gt;-->
+<!--  <div class="card-body">-->
+<!--    <div class="form-group row">-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="email" class="form-control" id="email" name="email" ngModel required placeholder="Email">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="form-group row">-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="text" class="form-control" id="first_name" name="first_name" ngModel required-->
+<!--               placeholder="first name">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="form-group row">-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="text" class="form-control" id="last_name" name="last_name" ngModel required-->
+<!--               placeholder="last name">-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="form-group row">-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="text" class="form-control" id="username" name="username" ngModel required-->
+<!--               placeholder="username">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="form-group row">-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="number" class="form-control" id="phone" name="phone" ngModel required placeholder="phone">-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="form-group row">-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="password" class="form-control" id="password" name="password" ngModel required-->
+<!--               placeholder="Password">-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;        <div class="form-group row">&ndash;&gt;-->
+<!--    &lt;!&ndash;          <label for="inputphoto" class="col-sm-2 col-form-label">photo</label>&ndash;&gt;-->
+<!--    &lt;!&ndash;          <input type="file" id="inputphoto" name="profile_image" accept="image/png, image/jpeg">&ndash;&gt;-->
+
+<!--    &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    <div class="form-group row">-->
+<!--      <div class="col-sm-10">-->
+
+<!--        <div class="form-check">-->
+<!--          <input type="checkbox" class="form-check-input" id="exampleCheck2">-->
+<!--          <label class="form-check-label" for="exampleCheck2">Is_admin</label>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="card-footer">-->
+<!--    <button type="submit" class="btn btn-info" [disabled]="f.invalid">Add</button>-->
+<!--    <a routerLink="/admin/allusers" style="float: right;" class="btn btn-outline-danger">Cancel</a>-->
+
+
+<!--  </div>-->
+
+<!--</form>-->
+
+

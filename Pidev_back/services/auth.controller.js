@@ -14,7 +14,8 @@ exports.register=async (req,res)=>{
 		first_name: 'required|minLength:2|maxLength:20',
 		last_name: 'required|minLength:2|maxLength:20',
 		password: 'required',
-		phone:'required|minLength:8|maxLength:8'
+		phone:'required|minLength:8|maxLength:8',
+		// profile_image:''
 	});
 
 	const matched = await v.check();
@@ -30,7 +31,8 @@ exports.register=async (req,res)=>{
 			username:req.body.username,
 			phone:req.body.phone,
 		 email:req.body.email,
-		 password:req.body.password 
+		 password:req.body.password,
+			// profile_image:req.body.profile_image
 		});
 
 		let userData=await newUser.save();
@@ -115,3 +117,4 @@ exports.logout= async (req, res) => {
 		message: 'goodbye'
 	})
 }
+

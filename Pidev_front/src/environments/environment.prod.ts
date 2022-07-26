@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: false,
+  // secret:'rigo',
+  // client:'123456789',
+  urlBackend:'http://localhost:3000/'
 };

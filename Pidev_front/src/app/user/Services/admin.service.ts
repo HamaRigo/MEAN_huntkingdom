@@ -1,25 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import {Injectable} from "@angular/core";
+import {Observable} from "rxjs";
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthadminService {
+export class adminService {
 
 
 
   helper=new JwtHelperService()
-  role=''
+  role_id=''
   constructor(private http:HttpClient) {
 
    }
 
 
-  login(data:any){
+  login(data:any):Observable<any>{
 
-    return this.http.post('http://localhost:3000/auth/login',data)
+    return this.http.post('http://localhost:3000/auth/login',{
+      email: data.email,
+      password: data.password});
   }
 
 
@@ -35,6 +38,7 @@ export class AuthadminService {
    let decodeToken= this.helper.decodeToken(token)
 
     return decodeToken.username
+    return decodeToken.role_id
 
   }
 
@@ -47,7 +51,7 @@ export class AuthadminService {
      let decodeToken=this.helper.decodeToken(token)
 
 
-     if(decodeToken.role!=='Admin'){
+     if(decodeToken.role_id!=='62bf9af180ef98715c71ae20'){
        return false
      }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthadminService } from 'src/app/user/Services/admin.service';
+import { adminService } from 'src/app/user/Services/admin.service';
 
 @Component({
   selector: 'app-layout-admin-auth',
@@ -11,9 +11,11 @@ export class LayoutAdminAuthComponent implements OnInit {
   dataReceived:any
   url:any
   messageAuthError:any
-  constructor(private asd:AuthadminService,private route:Router,private arouter:ActivatedRoute) {
+  constructor(private asd:adminService,private route:Router,private arouter:ActivatedRoute) {
     if(this.asd.LoggedIn()==true){
       this.route.navigate(['/admin/'])
+    }else{
+      this.route.navigate(['/'])
     }
   }
 
