@@ -2,7 +2,11 @@ var mongoose=require('mongoose')
 var schema=mongoose.Schema
 
 var chienChasse=new schema({
-    nom:String,
+    nom:{
+        type: String,
+        required: true,
+        unique: true,
+    },
     description:String,
     photo:String,
 
