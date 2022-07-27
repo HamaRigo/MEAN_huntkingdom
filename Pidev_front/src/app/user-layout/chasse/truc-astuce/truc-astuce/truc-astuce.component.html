@@ -1,0 +1,20 @@
+
+
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div *ngFor="let truc of trucAstuce">
+    <h2>{{truc.title}}</h2><br>
+    <h4>{{truc.description}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <a routerLink="/chasse/trucAstuce/detailAstuce/{{truc._id}}">
+            <img src="{{truc.photo}}" alt="Paris" width="400" height="300">
+            <p><strong>Truc et Astuces</strong></p>
+            <p>Truc et Astuces</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br>
+

@@ -8,8 +8,8 @@ export class ServiceChienChasseService {
 
   constructor(private http:HttpClient) { }
 
-  getChienChasse(){
-    return this.http.get( 'http://localhost:3000/chienChasse')
+  getChienChasse(p:any,limit:any){
+    return this.http.get( 'http://localhost:3000/chienChasse/?page='+p+'&limit='+limit)
   }
   postChienChasse(chienChasse:any){
     return this.http.post('http://localhost:3000/chienChasse/add/',chienChasse)

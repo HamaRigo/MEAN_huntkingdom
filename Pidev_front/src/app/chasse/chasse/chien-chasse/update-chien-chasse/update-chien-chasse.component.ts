@@ -23,7 +23,7 @@ export class UpdateChienChasseComponent implements OnInit {
   }
   updateChien(f:any){
     return this.serviceChienChasse.updateChienChasse(this.id,f.value).subscribe(()=>{
-      this.router.navigate(['/chasse/chienChasse'])
+      this.router.navigate(['/admin/chasse/chienChasse'])
     })
   }
 }

@@ -1,0 +1,37 @@
+<div class="box-form">
+    <div class="left">
+        <div class="overlay">
+            <h1>Hello World.</h1>
+            <p>Consult Our Store . Events . Formation . Activities . Welcome To Your Profile</p>
+        </div>
+    </div>
+    <div class="right">
+        <form class="user" #f="ngForm" (ngSubmit)="loginadmin(f)">
+            <h5>Login</h5>
+            <br><br>
+            <br><br>
+            <p>Don't have an account? <a routerLink="/register">Creat Your Account</a> it takes less than a minute</p>
+            <div class="inputs">
+                <div class="form-group">
+                    <input type="email" class="form-control form-control-user"
+                           id="exampleInputEmail" aria-describedby="emailHelp"
+                           placeholder="Enter Email Address..." name="email" #email="ngModel" ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control form-control-user"
+                           id="exampleInputPassword" placeholder="Password" name="password" #password="ngModel" ngModel>
+                </div>
+                <div class="alert alert-danger" *ngIf="messageAuthError">
+                    {{messageAuthError}}
+                </div>
+            </div>
+        <div class="remember-me--forget-password">
+            <p>forget password?</p>
+        </div>
+            <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+        <br>
+        </form>
+    </div>
+</div>
+
+

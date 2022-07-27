@@ -26,11 +26,11 @@ export class DetailChienChasseComponent implements OnInit {
   }
 
   update(id:any) {
-    this.router.navigate(['/chasse/chienChasse/updateChien/'+id])
+    this.router.navigate(['/admin/chasse/chienChasse/updateChien/'+id])
   }
   delete(id:any){
     this.serviceChienChasse.removeChienChasse(id).subscribe(()=>{
-      this.router.navigate(['/chasse/chienChasse'])
+      this.router.navigate(['/admin/chasse/chienChasse'])
     })
   }
 }

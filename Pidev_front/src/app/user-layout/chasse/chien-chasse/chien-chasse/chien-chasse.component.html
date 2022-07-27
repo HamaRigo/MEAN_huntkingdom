@@ -1,0 +1,24 @@
+
+
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div *ngFor="let chien of chienChasses[0].results | paginate:{itemsPerPage:limit,currentPage:p,totalItems:chienChasses[0].total}">
+    <h2>{{chien.nom}}</h2><br>
+    <h4>{{chien.description}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <a routerLink="/chasse/chienChasse/detailChien/{{chien._id}}">
+            <img src="{{chien.photo}}" alt="Paris" width="400" height="300">
+            <p><strong>Paris</strong></p>
+            <p>Yes, we built Paris</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pagination pagination-sm m-0 float-right">
+    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+  </div>
+</div><br>
+

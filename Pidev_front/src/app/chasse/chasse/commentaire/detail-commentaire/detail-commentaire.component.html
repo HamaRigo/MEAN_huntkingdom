@@ -1,0 +1,18 @@
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div>
+    <h4>{{commentaire.date_publication}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <p><strong>Message:</strong></p>
+          <p>{{commentaire.message}}</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-warning" (click)="update([commentaire._id])">update</button>
+    <br>
+    <br>
+    <button class="btn btn-warning" (click)="delete([commentaire._id])">delete</button>
+  </div>
+</div><br>

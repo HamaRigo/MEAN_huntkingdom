@@ -9,6 +9,12 @@ import { HomeComponent } from './home/home.component';
 import {ChienChasseRoutingModule} from "./chasse/chasse/chien-chasse/chien-chasse-routing.module";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { AdminLayoutComponent } from './admin-layout/admin-layout/admin-layout.component';
+import { UserLayoutComponent } from './user-layout/user-layout/user-layout.component';
+import { DashbordAdminComponent } from './dashbord-admin/dashbord-admin/dashbord-admin.component';
+import {DashbordAdminModule} from "./dashbord-admin/dashbord-admin.module";
+import {UserModule} from "./user/user.module";
+
 
 @NgModule({
   declarations: [
@@ -16,14 +22,19 @@ import {HttpClientModule} from "@angular/common/http";
     NavbarComponent,
     FooterComponent,
     HomeComponent,
+    AdminLayoutComponent,
+    UserLayoutComponent,
+    DashbordAdminComponent,
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChienChasseRoutingModule,
+    UserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,DashbordAdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

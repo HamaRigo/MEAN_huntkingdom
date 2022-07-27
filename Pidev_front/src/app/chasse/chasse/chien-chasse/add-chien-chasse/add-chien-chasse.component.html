@@ -6,20 +6,21 @@
       <input type="text" class="form-control" placeholder="nom chien" required name="nom" #nom="ngModel" ngModel >
     </div>
 
-    <!-- lastName validation start here -->
     <div class="form-group">
       <label >Description</label>
       <input type="text" class="form-control" placeholder="Description" required name="description" #description="ngModel"  ngModel>
     </div>
-    <!-- lastName validation end here -->
-
-    <!-- Email validation start here -->
 
     <div class="form-group">
       <label >Photo</label>
       <input type="text" class="form-control" placeholder="Photo" required name="photo" #photo="ngModel"  ngModel>
     </div>
-    <button class="btn btn-primary" >Add chien</button>
+    <div *ngIf="f.valid">
+      <button class="btn btn-primary" >Add chien</button>
+    </div>
+    <div *ngIf="f.valid==false">
+      <button class="btn btn-primary"  [disabled]="true" >Add chien</button>
+    </div>
   </form>
 
 

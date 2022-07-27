@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceCommentaireService} from "../service/service-commentaire.service";
 
 @Component({
   selector: 'app-commentaire',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./commentaire.component.css']
 })
 export class CommentaireComponent implements OnInit {
-
-  constructor() { }
+commentaire:any
+  constructor(private serviceCommentaire:ServiceCommentaireService) { }
 
   ngOnInit(): void {
+  this.serviceCommentaire.getCommentaire().subscribe((data)=>{
+    this.commentaire=data
+  })
   }
 
 }

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // secret:'rigo',
+  // client:'123456789',
+  urlBackend:'http://localhost:3000/'
 };
 
 /*

@@ -9,6 +9,7 @@ import { AddChienChasseComponent } from './add-chien-chasse/add-chien-chasse.com
 import { UpdateChienChasseComponent } from './update-chien-chasse/update-chien-chasse.component';
 import { DeleteChienChasseComponent } from './delete-chien-chasse/delete-chien-chasse.component';
 import { DetailChienChasseComponent } from './detail-chien-chasse/detail-chien-chasse.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -19,10 +20,10 @@ import { DetailChienChasseComponent } from './detail-chien-chasse/detail-chien-c
     DeleteChienChasseComponent,
     DetailChienChasseComponent
   ],
-  imports: [
-    CommonModule,
-    ChienChasseRoutingModule,
-    FormsModule,HttpClientModule
-  ]
+    imports: [
+        CommonModule,
+        ChienChasseRoutingModule,
+        FormsModule, HttpClientModule, NgxPaginationModule
+    ]
 })
 export class ChienChasseModule { }

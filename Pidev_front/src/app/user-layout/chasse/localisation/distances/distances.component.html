@@ -1,0 +1,41 @@
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div class="row text-center slideanim">
+
+
+  <div class="col-sm-4" *ngFor="let dist of distances">
+    <div class="thumbnail">
+    <h2>{{dist.i.nom}}</h2><br>
+
+    <h2>Cette Localisation est à : {{dist.distance}} km</h2>
+
+
+      <details >
+        <summary class="btn-outline-primary"><h5>More detail >></h5></summary>
+        <h4>{{dist.i.description}}</h4>
+      </details>
+
+      <a class="btn btn-outline-primary" routerLink="/chasse/localisation/detailLocalisation/{{dist.i._id}}">
+       <h4> les especes disponibles dans cette localisation</h4>
+      </a>
+        </div>
+
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+<!--<div class="row text-center slideanim">-->
+<!--  <div class="col-sm-2"  *ngFor="let dist of distances">-->
+<!--    <h2>{{dist.i.nom}}</h2><br>-->
+<!--    <div class="thumbnail">-->
+<!--      <a routerLink="/chasse/localisation/detailLocalisation/{{dist.i._id}}">-->
+<!--        <img src="{{dist.i.photo}}" alt="localisation" width="200" height="200">-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+

@@ -1,18 +1,57 @@
 var express = require('express');
 var router = express.Router();
 var EspecesChasse = require("../Models/especeChasse");
+const ChienChasse = require("../Models/chienChasse");
 
 
 
 // Getting all
-router.get('/', async (req, res) => {
+router.get('/all',async (req, res) => {
     try {
         var especesChasse = await EspecesChasse.find()
         res.json(especesChasse)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
+
+
 })
+
+// Getting all par page
+router.get('/', paginatedResults(EspecesChasse),async (req, res) => {
+    // try {
+    //     var especesChasse = await EspecesChasse.find()
+    //     res.json(especesChasse)
+    // } catch (err) {
+    //     res.status(500).json({ message: err.message })
+    // }
+
+    res.json(res.paginatedResults)
+})
+
+function paginatedResults(model) {
+    return async (req, res, next) => {
+        const page = parseInt(req.query.page)
+        const limit = parseInt(req.query.limit)
+
+        const startIndex = (page - 1) * limit
+        // const endIndex = page * limit
+
+        const paginatedResults = []
+
+
+        try {
+            const total= await model.find().countDocuments()
+            console.log(total)
+            results = await model.find().limit(limit).skip(startIndex).exec()
+            paginatedResults.push({results,total})
+            res.paginatedResults = paginatedResults
+            next()
+        } catch (e) {
+            res.status(500).json({ message: e.message })
+        }
+    }
+}
 
 // Getting One
 router.get('/:id', getEspecesChasse, (req, res) => {
@@ -22,10 +61,9 @@ router.get('/:id', getEspecesChasse, (req, res) => {
 // Creating one
 router.post('/', async (req, res) => {
     var especesChasse = new EspecesChasse({
-        nom:req.body.nom,
-        description:req.body.description,
+        nomEspece:req.body.nomEspece,
+        descriptionEspece:req.body.descriptionEspece,
         photo:req.body.photo,
-        localisation:req.body.localisation,
     })
     try {
         const newEspecesChasse = await especesChasse.save()
@@ -38,18 +76,16 @@ router.post('/', async (req, res) => {
 // Updating One
 router.patch('/:id', getEspecesChasse, async (req, res) => {
 
-    if (req.body.nom != null) {
-        res.especesChasse.nom = req.body.nom
+    if (req.body.nomEspece != null) {
+        res.especesChasse.nomEspece = req.body.nomEspece
     }
-    if (req.body.description != null) {
-        res.especesChasse.description = req.body.description
+    if (req.body.descriptionEspece != null) {
+        res.especesChasse.descriptionEspece = req.body.descriptionEspece
     }
     if (req.body.photo != null) {
         res.especesChasse.photo = req.body.photo
     }
-    if (req.body.localisation != null) {
-        res.especesChasse.localisation = req.body.localisation
-    }
+
     try {
         let especesChasse = await res.especesChasse.save()
         res.json(especesChasse)

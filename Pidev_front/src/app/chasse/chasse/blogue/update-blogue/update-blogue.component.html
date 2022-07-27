@@ -1,0 +1,25 @@
+<div class="container">
+
+  <form #f="ngForm"  (ngSubmit)="updateBlogue(f)">
+    <div class="form-group">
+      <label >Title:</label>
+      <input type="text" class="form-control" placeholder="{{blogue.title}}" required name="title" #title="ngModel" ngModel >
+    </div>
+    <div class="form-group">
+      <label >Date Publication</label>
+      <input type="text" class="form-control" placeholder="{{blogue.date_publication}}" required name="date_publication" #date_publication="ngModel"  ngModel>
+    </div>
+
+    <div class="form-group">
+      <label >Photo</label>
+      <input type="text" class="form-control" placeholder="{{blogue.photo}}" required name="photo" #photo="ngModel"  ngModel>
+    </div>
+    <div class="form-group">
+      <label >Message:</label>
+      <input type="text-Area" class="form-control" placeholder="{{blogue.message}}" required name="message" #message="ngModel"  ngModel>
+    </div>
+    <button class="btn btn-primary" >Update blogue</button>
+  </form>
+
+
+</div>

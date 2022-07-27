@@ -1,1 +1,22 @@
-<p>blogue works!</p>
+<div class="jumbotron text-center">
+  <a routerLink="/chasse/blogue/addBlogue"> ajouter un nouveau Blogue</a>
+
+</div>
+
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div *ngFor="let blogue of blogue">
+    <h2>{{blogue.title}}</h2><br>
+    <h4>{{blogue.date_publication}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-8">
+        <div class="thumbnail">
+          <a routerLink="/chasse/blogue/detailBlogue/{{blogue._id}}">
+            <img src="{{blogue.photo}}" alt="Paris" width="400" height="300">
+            <p><strong>message:</strong></p>
+            <p>{{blogue.message}}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br>

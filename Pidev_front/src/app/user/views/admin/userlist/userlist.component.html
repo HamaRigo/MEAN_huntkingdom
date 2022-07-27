@@ -1,0 +1,240 @@
+<section class="content">
+  <div class="card">
+    <div class="card-header">
+      <a routerLink="/admin/adduser" style="float: right;" class="btn btn-primary">Add User</a>
+      <h3 class="card-title">All users</h3>
+    </div>
+    <div class="card-body">
+      <div id="jsGrid1" class="jsgrid" style="position: relative; height: 100%; width: 100%;">
+        <div class="jsgrid-grid-header">
+          <table class="jsgrid-table">
+            <tr class="jsgrid-header-row">
+              <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 70px;">FirstName</th>
+              <th class="jsgrid-header-cell jsgrid-align-right jsgrid-header-sortable" style="width: 70px;">lastname
+              </th>
+              <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 150px;">email</th>
+              <th class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable" style="width: 50px;">status</th>
+              <th class="jsgrid-header-cell jsgrid-align-right jsgrid-header-sortable" style="width: 100px;">Actions
+              </th>
+            </tr>
+<!--filter row-->
+            <tr class="jsgrid-filter-row" style="display: none;">
+              <td class="jsgrid-cell" style="width: 70px;"><input type="text"></td>
+              <td class="jsgrid-cell jsgrid-align-right" style="width: 70px;"><input type="text"></td>
+              <td class="jsgrid-cell" style="width: 150px;"><input type="text"></td>
+              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><select>
+                <option value="0"></option>
+                <option value="1">United States</option>
+                <option value="2">Canada</option>
+                <option value="3">United Kingdom</option>
+                <option value="4">France</option>
+                <option value="5">Brazil</option>
+                <option value="6">China</option>
+                <option value="7">Russia</option>
+              </select></td>
+              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" readonly=""></td>
+            </tr>
+
+            <!--filter row-->
+
+          </table>
+        </div>
+        <div class="jsgrid-grid-body" style="height: 421px;">
+          <table class="jsgrid-table">
+            <tbody>
+
+            <tr class="jsgrid-row" *ngFor="let item of dataArray;index as i">
+              <td class="jsgrid-cell" style="width: 70px;">{{item.first_name}}</td>
+              <td class="jsgrid-cell" style="width: 70px;">{{item.last_name}}</td>
+              <td class="jsgrid-cell" style="width: 150px;">{{item.email}}</td>
+              <td class="jsgrid-cell" style="width: 50px;">{{item.status}}</td>
+
+              <td class="jsgrid-cell" style="width: 100px;">
+<!--                <select>-->
+<!--                  <option value="0">More...</option>-->
+<!--                  <option value="1">-->
+<!--                    <button class="btn btn-success"-->
+<!--                           (click)="getdata(item.firstname,item.lastname,item.status,item.createdAt,item.updatedAt,item.email,item._id)"-->
+<!--                              data-toggle="modal" data-target="#exampleModal">Update</button>-->
+<!--                  </option>-->
+<!--                  <option value="2">-->
+                    <button class="btn btn-info" (click)="details(item.id)">Details</button>
+<!--                  </option>-->
+<!--                  <option value="3">-->
+                    <button class="btn btn-danger" (click)="delete(item.id,i)">Delete</button>
+<!--                  </option>-->
+<!--              </select>-->
+              </td>
+
+
+
+            </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+        <!--  pagination front -->
+        <div class="jsgrid-pager-container">
+          <div class="jsgrid-pager">Pages: <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a
+            href="javascript:void(0);">First</a></span> <span
+            class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a
+            href="javascript:void(0);">Prev</a></span> <span
+            class="jsgrid-pager-page jsgrid-pager-current-page">1</span><span class="jsgrid-pager-page"><a
+            href="javascript:void(0);">2</a></span><span class="jsgrid-pager-page"><a
+            href="javascript:void(0);">3</a></span><span class="jsgrid-pager-page"><a
+            href="javascript:void(0);">4</a></span><span class="jsgrid-pager-page"><a
+            href="javascript:void(0);">5</a></span> <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Next</a></span>
+            <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Last</a></span> &nbsp;&nbsp; 1 of 5
+          </div>
+        </div>
+        <div class="jsgrid-load-shader" style="display: none; position: absolute; inset: 0px; z-index: 1000;"></div>
+        <div class="jsgrid-load-panel" style="display: none; position: absolute; top: 50%; left: 50%; z-index: 1000;">
+          Please, wait...
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<!--update user-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        &lt;!&ndash; form update start here &ndash;&gt;-->
+
+<!--        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--          <div class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--              <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                  <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--              </div>-->
+<!--              <div class="modal-body">-->
+<!--                &lt;!&ndash; form update start here &ndash;&gt;-->
+<!--                <form #f="ngForm" (ngSubmit)="updatenewuser(f)">-->
+<!--                  &lt;!&ndash; firstName validation start here &ndash;&gt;-->
+<!--                  <div class="form-group">-->
+
+<!--                    <label for="exampleFormControlInput1">Firstname</label>-->
+<!--                    <input type="text" class="form-control" placeholder="firstName" [(ngModel)]="dataStudent.firstname" required name="firstname" #firstname="ngModel" ngModel minlength="2" maxlength="20">-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="firstname.errors?.required && firstname.touched">-->
+<!--                    FirstName is required-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="firstname.errors?.minlength && firstname.touched">-->
+<!--                    FirstName must be minimum 2 caractere-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; lastName validation end here &ndash;&gt;-->
+
+<!--                  &lt;!&ndash; lastName validation start here &ndash;&gt;-->
+<!--                  <div class="form-group">-->
+<!--                    <label for="exampleFormControlInput1">lastname</label>-->
+<!--                    <input type="text" class="form-control" placeholder="lastname" [(ngModel)]="dataStudent.lastname" required name="lastname" #lastname="ngModel" minlength="2" maxlength="20" ngModel>-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="lastname.errors?.required && lastname.touched">-->
+<!--                    lastname is required-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="lastname.errors?.minlength && lastname.touched">-->
+<!--                    lastname must be minimum 2 caractere-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; lastName validation end here &ndash;&gt;-->
+
+<!--                  &lt;!&ndash; Email validation start here &ndash;&gt;-->
+
+<!--                  <div class="form-group">-->
+<!--                    <label for="exampleFormControlInput1">email</label>-->
+<!--                    <input type="email" class="form-control" placeholder="email" [(ngModel)]="dataStudent.email" email required name="email" #email="ngModel" ngModel>-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="email.errors?.required && email.touched">-->
+<!--                    email is required-->
+<!--                  </div>-->
+
+<!--                  <div class="alert alert-danger" *ngIf="email.errors?.email && email.touched">-->
+<!--                    the input must be email not string-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; Email validation end here &ndash;&gt;-->
+
+<!--                  &lt;!&ndash; age validation start here &ndash;&gt;-->
+<!--                  <div class="form-group">-->
+<!--                    <label for="exampleFormControlInput1">age</label>-->
+<!--                    <input type="number" class="form-control" placeholder="age" [(ngModel)]="dataStudent.age" required name="age" #age="ngModel" ngModel>-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="age.errors?.required && age.touched">-->
+<!--                    age is required-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; age validation end here &ndash;&gt;-->
+
+
+<!--                  &lt;!&ndash; Phone validation start here &ndash;&gt;-->
+
+<!--                  <div class="form-group">-->
+<!--                    <label for="exampleFormControlInput1">Phone</label>-->
+<!--                    <input type="number" class="form-control" placeholder="phone" [(ngModel)]="dataStudent.phone" required name="phone" #phone="ngModel" ngModel>-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="phone.errors?.required && phone.touched">-->
+<!--                    phone is required-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; Phone validation end here &ndash;&gt;-->
+
+<!--                  <div class="alert alert-success" *ngIf="messageSuccess">-->
+<!--                    {{messageSuccess}}-->
+<!--                  </div>-->
+
+<!--                  <button class="btn btn-primary" [disabled]="f.invalid">Update student</button>-->
+<!--                </form>-->
+
+
+
+<!--                &lt;!&ndash; form update end here &ndash;&gt;-->
+<!--              </div>-->
+<!--              <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+
+<!--        &lt;!&ndash;      exemple      <tr class="jsgrid-row">&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell" style="width: 100px;">Otto Clay</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell jsgrid-align-right" style="width: 100px;">61</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell" style="width: 200px;">Ap #897-1459 Quam Avenue</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">China</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell jsgrid-align-center" style="width: 50px;"><input type="checkbox" disabled=""></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <tr class="jsgrid-alt-row">&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell" style="width: 150px;">Connor Johnston</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">73</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell" style="width: 200px;">Ap #370-4647 Dis Av.</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Russia</td>&ndash;&gt;-->
+<!--&lt;!&ndash;              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            </tr>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<tr class="jsgrid-filter-row" style="display: none;">&ndash;&gt;-->
+<!--&lt;!&ndash;  <td class="jsgrid-cell" style="width: 150px;"><input type="text"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;  <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;"><input type="number"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;  <td class="jsgrid-cell" style="width: 200px;"><input type="text"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;  <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><select>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="0"></option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="1">United States</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="2">Canada</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="3">United Kingdom</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="4">France</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="5">Brazil</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="6">China</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option value="7">Russia</option>&ndash;&gt;-->
+<!--&lt;!&ndash;  </select></td>&ndash;&gt;-->
+<!--&lt;!&ndash;  <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" readonly=""></td>&ndash;&gt;-->
+<!--&lt;!&ndash;</tr>&ndash;&gt;-->
