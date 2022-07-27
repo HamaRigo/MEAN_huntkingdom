@@ -1,0 +1,48 @@
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div class="2">
+    <div class="thumbnail">
+      <button class="btn  btn-outline-primary btn-lg " (click)="getMap([localisation.longitude],[localisation.latitude])">VIEW ON MAP</button>
+    </div>
+  </div>
+
+  <div>
+    <h1>{{localisation.nom}}</h1><br>
+    <h4>{{localisation.description}}</h4>
+    <br>
+    <br>
+    <br>
+    <div lass="row text-center slideanim">
+      <h2 style="color: #e66a02">LES ESPECES DISPONIBLES DANS CETTE LOCALISATION</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4" *ngFor="let espece of especes">
+        <div >
+          <div>
+
+            <div class="row text-center slideanim">
+              <div class="col-sm-6">
+                <div class="thumbnail">
+                  <img src="{{espece.especeChasse.photo}}" alt="Paris" width="800" height="800">
+                </div>
+              </div>
+            </div>
+            <h2>{{espece.especeChasse.nomEspece}}</h2><br>
+
+            <details >
+              <summary class="btn-outline-primary"><h5>More detail >></h5></summary>
+              <h4>{{espece.especeChasse.descriptionEspece}}</h4>
+            </details>
+
+
+
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+

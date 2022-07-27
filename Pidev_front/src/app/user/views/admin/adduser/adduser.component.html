@@ -1,20 +1,19 @@
-<!--<p>adduser works!</p>-->
 <div class="container">
   <div class="card card-info">
     <div class="card-header">
       <h3 class="card-title">Admin Add Form</h3>
     </div>
-
+    <div class="alert alert-danger" *ngIf="messageErr">
+      <h3>{{messageErr}}</h3>
+    </div>
     <form NgForm #f="ngForm" name="f" (ngSubmit)="add(f)">
-      <!--    <form  NgForm #f="NgForm" name="f" (onclick)>-->
-
-      <!--    <form class="form-horizontal" ng-Submit="add(f)">-->
-      <!--    <form class="form-horizontal">-->
       <div class="card-body">
         <div class="form-group row">
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" name="email" ngModel required placeholder="Email">
-          </div>
+
+              <input type="email" class="form-control" name="email" #email="ngModel" ngModel required placeholder="Email">
+
+            </div>
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -28,7 +27,6 @@
                    placeholder="last name">
           </div>
         </div>
-
         <div class="form-group row">
           <div class="col-sm-10">
             <input type="text" class="form-control" id="username" name="username" ngModel required
@@ -48,11 +46,7 @@
 
           </div>
         </div>
-<!--        <div class="form-group row">-->
-<!--          <label for="inputphoto" class="col-sm-2 col-form-label">photo</label>-->
-<!--          <input type="file" id="inputphoto" name="profile_image" accept="image/png, image/jpeg">-->
 
-<!--        </div>-->
         <div class="form-group row">
           <div class="col-sm-10">
 
@@ -66,7 +60,7 @@
 
       <div class="card-footer">
         <button type="submit" class="btn btn-info" [disabled]="f.invalid">Add</button>
-        <a routerLink="/admin/allusers" style="float: right;" class="btn btn-outline-danger">Cancel</a>
+        <a routerLink="/admin/user/allusers" style="float: right;" class="btn btn-outline-danger">Cancel</a>
 
 
       </div>
@@ -74,33 +68,3 @@
     </form>
   </div>
 </div>
-
-<!--<form (submit)="add(f)" #f="ngForm">-->
-<!--  <label> id</label>-->
-<!--  <input type="number" name="id" ngModel required #id="ngModel">-->
-<!--  <div *ngIf="id.invalid && id.touched">-->
-<!--    msg error-->
-<!--  </div>-->
-<!--  <label > title</label>-->
-<!--  <input type="text" name="title" ngModel required minlength="3" #title="ngModel">-->
-<!--  <div *ngIf="title.invalid ">-->
-<!--    <div *ngIf="title.errors?.['required']">-->
-<!--      required-->
-<!--    </div>-->
-<!--    <div *ngIf="title.errors?.['minlength']">-->
-<!--      minlenght-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <label> quantity</label>-->
-<!--  <input type="number" name="Q" ngModel>-->
-<!--  <label>price</label>-->
-<!--  <input type="number" name="price" ngModel>-->
-<!--  <input type="submit" value="save 2" (click)="add(f.valid)" [disabled]="f.untouched">-->
-
-<!--  <div *ngIf="f.valid">-->
-<!--    <input type="submit" value="save" (click)="add(f.valid)" [disabled]="false">-->
-<!--  </div>-->
-<!--  <div *ngIf="f.valid==false">-->
-<!--    <input type="submit" value="save" (click)="add(title)" >-->
-<!--  </div>-->
-<!--</form>-->

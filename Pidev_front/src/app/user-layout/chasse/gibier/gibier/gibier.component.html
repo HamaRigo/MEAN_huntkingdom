@@ -1,0 +1,41 @@
+
+
+<!--<div  class="container-fluid text-center bg-grey">-->
+<!--  <div  *ngFor="let gibier of gibier[0].results | paginate:{itemsPerPage:limit,currentPage:p,totalItems:gibier[0].total}">-->
+<!--    <h2>{{gibier.nomEspece}}</h2><br>-->
+
+<!--    <div class="row text-center slideanim">-->
+<!--      <div id="portfolio" class="container-fluid text-center bg-grey">-->
+<!--        <div class="container-fluid text-center bg-grey">-->
+<!--          <a routerLink="/chasse/gibier/detailGibier/{{gibier._id}}">-->
+<!--            <img src="{{gibier.photo}}" alt="Paris" width="800" height="400">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <h4>{{gibier.descriptionEspece}}</h4>-->
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-4"  *ngFor="let gibier of gibier[0].results | paginate:{itemsPerPage:limit,currentPage:p,totalItems:gibier[0].total}">
+        <h2>{{gibier.nomEspece}}</h2><br>
+        <div class="thumbnail">
+          <a routerLink="/chasse/gibier/detailGibier/{{gibier._id}}">
+            <img src="{{gibier.photo}}"  alt="gibier" width="800" height="800">
+          </a>
+        </div>
+        <details >
+          <summary class="btn-outline-primary"><h5>More detail >></h5></summary>
+          <h4>{{gibier.descriptionEspece}}</h4>
+        </details>
+      </div>
+    </div>
+
+
+
+
+<!--  </div>-->
+  <div class="pagination pagination-sm m-0 float-right">
+    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+  </div>
+<!--</div><br>-->
+

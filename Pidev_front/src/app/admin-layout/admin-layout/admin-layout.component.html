@@ -1,0 +1,110 @@
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand  navbar-light">
+  <!-- Left navbar links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+    <ul class="nav navbar-collapse navbar-left">
+      <li><a href="/admin">HOME</a></li>
+      <li><a routerLink="/admin/chasse">LA CHASSE</a></li>
+      <li><a href="#services">LA PECHE</a></li>
+      <li><a href="#portfolio">EVENNEMENT</a></li>
+      <li><a href="#portfolio">BLOGUES</a></li>
+      <li><a href="#pricing">STORE</a></li>
+    </ul>
+  </ul>
+
+  <!-- Right navbar links -->
+
+</nav>
+<!-- /.navbar -->
+
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a routerLink="/admin" class="brand-link">
+    <img src="./assets/logo/logo.jpeg" alt="AdminLTE Logo" class="brand-image img-bordered elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">AdminLTE 3</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+
+    <!-- SidebarSearch Form -->
+
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a routerLink="/admin/" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p class="dashbord">
+              Dashboard
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/admin/chasse" class="nav-link">
+            <i class="nav-icon fas fa-safari"></i>
+            <p class="chasse">
+             CHASSE
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="/admin/chasse/localisation" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p class="chasse">LOCALISATION</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/chasse/chienChasse" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p class="chasse">CHIEN DE CHASSE</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/chasse/gibier" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p class="chasse">GIBIER</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/chasse/trucAstuce" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p class="chasse">TRUC ET ASTUCE</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/chasse/blogue" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p class="chasse">BLOGUES</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/chasse/commentaire" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p class="chasse">COMMENTAIRES</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+<router-outlet></router-outlet>

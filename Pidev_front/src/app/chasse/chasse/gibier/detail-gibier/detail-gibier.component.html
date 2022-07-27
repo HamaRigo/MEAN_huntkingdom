@@ -1,0 +1,43 @@
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div>
+    <h2>{{gibier.nomEspece}}</h2><br>
+    <h4>{{gibier.descriptionEspece}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{{gibier.photo}}" alt="Paris" width="400" height="300">
+          <p><strong>Gibier</strong></p>
+          <p>Gibier</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div *ngFor="let localisation of localisation">
+        <div>
+          <h2>{{localisation.localisationChasse.nom}}</h2><br>
+          <h4>{{localisation.localisationChasse.description}}</h4>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-warning" (click)="update([gibier._id])">update</button>
+    <br>
+    <br>
+    <button class="btn btn-warning" (click)="delete([gibier._id])">delete</button>
+  </div>
+<!--  <div>-->
+<!--    <form #f="ngForm" (ngSubmit)="addNewLocalisation(f)">-->
+<!--      <label for="browser">Choose your browser from the list:</label>-->
+<!--      <input list="browsers" name="browser" id="browser" #browser="ngModel" ngModel>-->
+<!--      <datalist id="browsers">-->
+<!--        <div *ngFor="let l of localisationAll">-->
+<!--          <option value="{{l.nom}}">-->
+<!--        </div>-->
+<!--      </datalist>-->
+<!--      <button class="btn btn-warning">ajouter une nouvelle localisation</button>-->
+<!--    </form>-->
+<!--  </div>-->
+</div><br>
+
+

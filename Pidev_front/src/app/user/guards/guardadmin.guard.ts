@@ -21,12 +21,11 @@ export class GuardadminGuard implements CanActivate {
 
 
     return new Promise((resolve,reject)=>{
-      if(this.as.LoggedIn()==true){
+      if(this.as.LoggedIn() && this.as.IsAdmin()){
       resolve(true)
     }
     else{
-      this.router.navigate(['/admin/login'],{queryParams:{returnUrl:state.url}})
-      localStorage.removeItem('token')
+      this.router.navigate(['/'])
       resolve(false)
 
     }

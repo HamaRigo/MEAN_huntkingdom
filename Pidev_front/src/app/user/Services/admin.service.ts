@@ -12,49 +12,43 @@ export class adminService {
 
 
   helper=new JwtHelperService()
-  role_id=''
   constructor(private http:HttpClient) {
 
    }
 
 
-  login(data:any):Observable<any>{
-
-    return this.http.post('http://localhost:3000/auth/login',{
-      email: data.email,
-      password: data.password});
+  login(body:any){
+    return this.http.post('http://localhost:3000/auth/login',body)
   }
 
 
   saveDataProfil(token:any){
-
-  //  let decodeToken= this.helper.decodeToken(token)
-
    localStorage.setItem('token',token)
-
   }
   getUsername(){
-   let token:any=localStorage.getItem('mysecret')
+   let token:any=localStorage.getItem('token')
    let decodeToken= this.helper.decodeToken(token)
 
     return decodeToken.username
-    return decodeToken.role_id
+    // return decodeToken.role_id
 
+  }
+  IsAdmin(){
+   let token:any=localStorage.getItem('token')
+   let decodeToken= this.helper.decodeToken(token)
+      if(decodeToken.data.role_id =='62bf9a8b80ef98715c71ae1f'){
+          return true
+        }
+      return false
   }
 
 
   LoggedIn(){
      let token:any=localStorage.getItem('token')
+
      if(!token){
       return false
      }
-     let decodeToken=this.helper.decodeToken(token)
-
-
-     if(decodeToken.role_id!=='62bf9af180ef98715c71ae20'){
-       return false
-     }
-
      if(this.helper.isTokenExpired(token)){
        return false
      }

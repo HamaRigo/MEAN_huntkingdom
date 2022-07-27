@@ -6,11 +6,17 @@ import { CommentaireComponent } from './commentaire/commentaire.component';
 import {ChienChasseRoutingModule} from "../chien-chasse/chien-chasse-routing.module";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { UpdateCommentaireComponent } from './update-commentaire/update-commentaire.component';
+import { DetailCommentaireComponent } from './detail-commentaire/detail-commentaire.component';
+import { AddCommentaireComponent } from './add-commentaire/add-commentaire.component';
 
 
 @NgModule({
   declarations: [
-    CommentaireComponent
+    CommentaireComponent,
+    UpdateCommentaireComponent,
+    DetailCommentaireComponent,
+    AddCommentaireComponent
   ],
   imports: [
     CommonModule,

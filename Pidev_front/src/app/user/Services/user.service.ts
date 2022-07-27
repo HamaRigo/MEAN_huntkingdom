@@ -25,7 +25,14 @@ export class UserService {
     localStorage.setItem('token',token)
 
   }
-
+  IsUser(){
+    let token:any=localStorage.getItem('token')
+    let decodeToken= this.helper.decodeToken(token)
+    if(decodeToken.data.role_id =='62bf9af180ef98715c71ae20'){
+      return true
+    }
+    return false
+  }
 
   userLoggedIn(){
 

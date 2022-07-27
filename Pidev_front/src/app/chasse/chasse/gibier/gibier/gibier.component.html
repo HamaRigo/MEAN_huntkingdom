@@ -1,1 +1,88 @@
-<p>gibier works!</p>
+
+<div class="jumbotron text-center">
+  <a  class="btn  btn-outline-primary btn-lg "routerLink="/admin/chasse/gibier/addGibier"> ajouter un nouveau gibier</a>
+
+</div>
+
+<!--<div id="portfolio" class="container-fluid text-center bg-grey">-->
+<!--  <div *ngFor="let gibier of gibier[0].results | paginate:{itemsPerPage:limit,currentPage:p,totalItems:gibier[0].total}">-->
+<!--    <h2>{{gibier.nomEspece}}</h2><br>-->
+<!--    <h4>{{gibier.descriptionEspece}}</h4>-->
+<!--    <div class="row text-center slideanim">-->
+<!--      <div class="col-sm-4">-->
+<!--        <div class="thumbnail">-->
+<!--          <a routerLink="/chasse/gibier/detailGibier/{{gibier._id}}">-->
+<!--            <img src="{{gibier.photo}}" alt="Paris" width="400" height="300">-->
+<!--            <p><strong>Gibier</strong></p>-->
+<!--            <p>Gibier</p>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="pagination pagination-sm m-0 float-right">-->
+<!--    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>-->
+<!--  </div>-->
+<!--</div><br>-->
+
+<!--admin table localisation-->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Gibier</h4>
+        <h5 class="card-subtitle text-muted">Overview of the projects</h5>
+        <div class="table-responsive">
+          <table class="table align-middle text-nowrap">
+            <thead>
+            <tr>
+              <th class="text-dark font-medium fs-4">Gibier Name</th>
+              <th class="text-dark font-medium fs-4">Description</th>
+              <th class="text-dark font-medium fs-4">Photo</th>
+              <th class="text-dark font-medium fs-4">Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let gibier of gibier[0].results | paginate:{itemsPerPage:limit,currentPage:p,totalItems:gibier[0].total} ">
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <h5 class="mb-0 font-medium">{{gibier.nomEspece}}</h5>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <h5 class="mb-0 font-medium">{{gibier.description}}</h5>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <h5 class="mb-0 font-medium">{{gibier.photo}}</h5>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <a routerLink="/admin/chasse/gibier/detailGibier/{{gibier._id}}">
+                      <p><strong>Detail</strong></p>
+                    </a>
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination pagination-sm m-0 float-right">
+    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+  </div>
+</div>

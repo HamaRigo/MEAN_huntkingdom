@@ -1,0 +1,18 @@
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div *ngFor="let dist of distances">
+    <h2>{{dist.i.nom}}</h2><br>
+    <h4>{{dist.i.description}}</h4>
+    <h2>Cette Localisation est à : {{dist.distance}} km</h2>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <a routerLink="/chasse/localisation/detailLocalisation/{{dist.i._id}}">
+            <p><strong>Localisation</strong></p>
+            <p>Localisation</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br>
+

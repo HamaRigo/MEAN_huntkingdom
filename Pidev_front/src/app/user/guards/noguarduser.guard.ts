@@ -16,7 +16,7 @@ export class NoguarduserGuard implements CanActivateChild {
 
 
     return new Promise((resolve,reject)=>{
-      if(this.aus.userLoggedIn()==false){
+      if(!this.aus.userLoggedIn()){
         resolve(true)
 
 
@@ -24,7 +24,7 @@ export class NoguarduserGuard implements CanActivateChild {
     else{
       resolve(false)
 
-      this.router.navigate(['/students'])
+      this.router.navigate(['/'])
     }
     })
 

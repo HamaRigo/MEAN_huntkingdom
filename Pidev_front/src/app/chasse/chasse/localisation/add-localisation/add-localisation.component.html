@@ -3,17 +3,13 @@
   <form #f="ngForm"  (ngSubmit)="addLocalisation(f)">
     <div class="form-group">
       <label >Langitude:</label>
-      <input type="text" class="form-control" placeholder="Longitude" required name="longitude" #longitude="ngModel" ngModel >
+      <input type="number" class="form-control" placeholder="Longitude" required name="longitude" #longitude="ngModel" ngModel >
     </div>
 
-    <!-- lastName validation start here -->
     <div class="form-group">
       <label >Latitude:</label>
-      <input type="text" class="form-control" placeholder="Latitude" required name="latitude" #latitude="ngModel"  ngModel>
+      <input type="number" class="form-control" placeholder="Latitude" required name="latitude" #latitude="ngModel"  ngModel>
     </div>
-    <!-- lastName validation end here -->
-
-    <!-- Email validation start here -->
 
     <div class="form-group">
       <label >Nom:</label>
@@ -23,12 +19,17 @@
       <label >Description</label>
       <input type="text" class="form-control" placeholder="Description" required name="description" #description="ngModel"  ngModel>
     </div>
-<!--    <div class="form-group">-->
-<!--      <label >Especs</label>-->
-<!--      <input type="text" class="form-control" placeholder="especes" required name="especes" #especes="ngModel"  ngModel>-->
-<!--    </div>-->
+    <div class="form-group">
+      <label >Photo</label>
+      <input type="text" class="form-control" placeholder="photo" required name="photo" #photo="ngModel"  ngModel>
+    </div>
 
-    <button class="btn btn-primary" >Add Localisation</button>
+    <div *ngIf="f.valid">
+      <button class="btn btn-primary"  >Add Localisation</button>
+    </div>
+    <div *ngIf="f.valid==false">
+      <button class="btn btn-primary"  [disabled]="true" >Add Localisation</button>
+    </div>
   </form>
 
 

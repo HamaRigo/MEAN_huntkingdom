@@ -1,0 +1,43 @@
+<!--<p>register works!</p>-->
+<div class="box-form">
+
+  <div class="left">
+    <div class="overlay">
+      <h1>Welcome with Us</h1>
+      <p>Completer votre registration en Quelque Etape</p>
+
+    </div>
+  </div>
+
+
+  <div class="right">
+
+    <h5>Register</h5>
+    <br>
+    <br>
+    <br>
+    <p>Write your information Here and Creat Your Account it takes less than a minute</p>
+    <!--        <form class="user">-->
+    <div class="alert alert-danger" *ngIf="messageErr">
+      <h3>{{messageErr}}</h3>
+    </div>
+    <form NgForm #f="ngForm" name="f" (ngSubmit)="add(f)">
+
+      <div class="inputs">
+        <input type="email" class="form-control"  name="email" #email="ngModel" ngModel required placeholder="Email">
+        <input type="text" class="form-control"  name="first_name" #first_name="ngModel" ngModel required placeholder="First name">
+        <input type="text" class="form-control"  name="last_name" #last_name="ngModel" ngModel required placeholder="Last name">
+        <input type="text" class="form-control"  name="username" #username="ngModel" ngModel required placeholder="Username">
+        <input type="text" class="form-control"  name="phone" #phone="ngModel" ngModel required placeholder="Phone">
+        <input type="password" class="form-control"  name="password" #password="ngModel" ngModel required placeholder="Password">
+      </div>
+      <br><br>
+      <div class="remember-me--forget-password">
+        <!-- Angular -->
+        <p><a routerLink="/login">Alrady have registred !</a></p>
+      </div>
+      <br>
+      <button type="submit" (click)="add(f)">Register</button>
+    </form>
+  </div>
+</div>

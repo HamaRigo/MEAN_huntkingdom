@@ -20,7 +20,7 @@ id:any
   }
   updateLocalisation(f:any){
   return this.serviceLocalisation.updateLocalisation(this.id,f.value).subscribe(()=>{
-    this.router.navigate(['/chasse/localisation'])
+    this.router.navigate(['/admin/chasse/localisation'])
   })
   }
 

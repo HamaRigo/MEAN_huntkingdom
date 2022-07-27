@@ -16,8 +16,7 @@ export class AddLocalisationComponent implements OnInit {
 addLocalisation(f:any){
   console.log(f.value)
     this.serviceLocalisation.postLocalisation(f.value).subscribe(()=>{
-
-      this.route.navigate(['/chasse/localisation'])
+      this.route.navigate(['/admin/chasse/localisation'])
     })
 }
 }

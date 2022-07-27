@@ -15,7 +15,7 @@ export class AddChienChasseComponent implements OnInit {
   }
   addChien(f:any){
     this.serviceChienChasse.postChienChasse(f.value).subscribe(()=>{
-      this.route.navigate(['/chasse/chienChasse'])
+      this.route.navigate(['admin/chasse/chienChasse'])
     })
   }
 }

@@ -26,11 +26,11 @@ export class AdduserComponent implements OnInit {
     this.ds.adduser(data).subscribe(response=>{
       console.log(response)
 
-      this.route.navigate(['/admin/allusers'])
+      this.route.navigate(['/admin/user/allusers'])
 
     },(err:HttpErrorResponse)=>{
-      this.messageErr=err.error
-      console.log(err.error)
+      this.messageErr='user exist deja'
+      // console.log(err.error)
       // console.log(err.status)
     })
   }

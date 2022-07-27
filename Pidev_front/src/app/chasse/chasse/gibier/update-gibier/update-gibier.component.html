@@ -1,0 +1,26 @@
+<div class="container">
+
+  <form #f="ngForm"  (ngSubmit)="updateGibier(f)">
+    <div class="form-group">
+      <label >Nom Gibier:</label>
+      <input type="text" class="form-control" placeholder="{{gibier.nomEspece}}" required name="nom" #nomEspece="ngModel" ngModel >
+    </div>
+
+    <div class="form-group">
+      <label >Description</label>
+      <input type="text" class="form-control" placeholder="{{gibier.descriptionEspece}}" required name="descriptionEspece" #descriptionEspece="ngModel"  ngModel>
+    </div>
+    <div class="form-group">
+      <label >Photo</label>
+      <input type="text" class="form-control" placeholder="{{gibier.photo}}" required name="photo" #photo="ngModel"  ngModel>
+    </div>
+    <div *ngIf="f.valid">
+      <button class="btn btn-primary" >update Gibier</button>
+    </div>
+    <div *ngIf="f.valid==false">
+      <button class="btn btn-primary"  [disabled]="true" >update Gibier</button>
+    </div>
+  </form>
+
+
+</div>

@@ -1,23 +1,101 @@
 <div class="jumbotron text-center">
-  <a routerLink="/chasse/localisation/addLocalisation"> ajouter une nouvelle localisation</a>
+  <button class="btn  btn-outline-primary btn-lg " routerLink="/admin/chasse/localisation/addLocalisation" >
+    AJOUTER UNE NOUVELLE LOCALISATION</button>
+
 
 </div>
 
-<div id="portfolio" class="container-fluid text-center bg-grey">
-  <div *ngFor="let localisation of localisation">
-    <h2>{{localisation.nom}}</h2><br>
-    <h4>{{localisation.description}}</h4>
+<!--<div id="portfolio" class="container-fluid text-center bg-grey">-->
+<!--  <button class="btn  btn-outline-primary btn-lg " (click)="getDistance()">LES LOCALISATIONS LES PLUS PROCHES DE MOI</button>-->
+<!--  <div *ngFor="let localisation of localisation[0].results | paginate:{itemsPerPage:limit,currentPage:p,totalItems:localisation[0].total}">-->
+<!--    <h2>{{localisation.nom}}</h2><br>-->
+<!--    <h4>{{localisation.description}}</h4>-->
 
-    <div class="row text-center slideanim">
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <a routerLink="/chasse/localisation/detailLocalisation/{{localisation._id}}">
-            <p><strong>Localisation</strong></p>
-            <p>Localisation</p>
-          </a>
+<!--    <div class="row text-center slideanim">-->
+<!--      <div class="col-sm-4">-->
+<!--        <div class="thumbnail">-->
+<!--          <a routerLink="/admin/chasse/localisation/detailLocalisation/{{localisation._id}}">-->
+<!--            <p><strong>Localisation</strong></p>-->
+<!--            <p>Localisation</p>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="pagination pagination-sm m-0 float-right">-->
+<!--    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>-->
+<!--  </div>-->
+<!--</div><br>-->
+
+<!--admin table localisation-->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <h4 class="card-title">LOCALISATION</h4>
+        <h5 class="card-subtitle text-muted">Overview of the projects</h5>
+        <div class="table-responsive">
+          <table class="table align-middle text-wrap">
+            <thead>
+            <tr>
+              <th class="text-dark font-medium fs-4">localisation Name</th>
+              <th class="text-dark font-medium fs-4">Langitude</th>
+              <th class="text-dark font-medium fs-4">Latitude</th>
+              <th class="text-dark font-medium fs-4">Description</th>
+              <th class="text-dark font-medium fs-4">Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let localisation of localisation[0].results | paginate:{itemsPerPage:limit,currentPage:p,totalItems:localisation[0].total} ">
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <h5 class="mb-0 font-medium">{{localisation.nom}}</h5>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <h5 class="mb-0 font-medium">{{localisation.longitude}}</h5>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <h5 class="mb-0 font-medium">{{localisation.latitude}}</h5>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                    <h5 class="mb-0 font-medium">{{localisation.description}}</h5>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <div class="ms-3">
+                              <a routerLink="/admin/chasse/localisation/detailLocalisation/{{localisation._id}}">
+                                <p><strong>Detail</strong></p>
+                              </a>
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-  </div>
-</div><br>
 
+  </div>
+
+    <div class="pagination pagination-sm m-0 float-right">
+      <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+    </div>
+</div>

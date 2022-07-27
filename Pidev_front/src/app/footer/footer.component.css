@@ -128,11 +128,12 @@ h4 {
   color: #fff !important;
 }
 footer .glyphicon {
+  margin-left: 10px;
   font-size: 20px;
   margin-bottom: 20px;
   color: #f4511e;
 }
-.slideanim {visibility:hidden;}
+
 .slide {
   animation-name: slide;
   -webkit-animation-name: slide;

@@ -14,7 +14,7 @@ export class GuarduserGuard implements CanActivateChild {
   canActivateChild(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     return new Promise((resolve,reject)=>{
-      if(this.aus.userLoggedIn()==true){
+      if(this.aus.userLoggedIn() && this.aus.IsUser()){
       resolve(true)
     }
     else{

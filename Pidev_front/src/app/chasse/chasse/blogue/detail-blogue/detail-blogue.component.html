@@ -1,0 +1,20 @@
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div>
+    <h2>{{blogue.title}}</h2><br>
+    <h4>{{blogue.date_publication}}</h4>
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="{{blogue.photo}}" alt="Paris" width="400" height="300">
+          <p><strong>Message:</strong></p>
+          <p>{{blogue.message}}</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-warning" (click)="update([blogue._id])">update</button>
+    <br>
+    <br>
+    <button class="btn btn-warning" (click)="delete([blogue._id])">delete</button>
+  </div>
+</div><br>
