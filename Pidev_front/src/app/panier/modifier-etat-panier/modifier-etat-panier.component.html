@@ -1,0 +1,10 @@
+<h3>Modifier un etat</h3>
+<form #f="ngForm">
+    <div class="form-group">
+        <label for="label">label</label>
+        <input required type="text" class="form-control" id="label" name="label" placeholder="Entrer Label" [(ngModel)]="label" value="{{etat.label}}">
+
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="modifierEtat()">Submit</button>
+</form>
+
